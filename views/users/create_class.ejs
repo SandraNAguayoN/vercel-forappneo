@@ -1,0 +1,75 @@
+<% include ../partials/headUser %>
+  <% include ../partials/navbarUser %>
+
+    <section>
+
+      <div align="center">
+        <div class="card text-black bg-light mb-3" id="card_crear_clase">
+          <div class="card-header">
+            <h1 id="h1_crear_clase"><i class="fa fa-paperclip"></i> Crear clase</h1>
+          </div>
+          <div class="card-body">
+            <form action="/create_class" method="post">
+              <div>
+                <input type="text" name="user" id="user" value="<%= usuario.email %>" style="visibility: hidden;">
+                <input type="text" name="username" id="username" value="<%= usuario.username %> <%= usuario.lastname %>"
+                  style="visibility: hidden;">
+              </div>
+              <div class="form-group">
+                <label class="labels_crear_clase">Idioma </label>
+                <select class="custom-select" name="language" id="language" aria-label="Default select example"
+                  required>
+                  <option value="" selected>Selecciona un idioma</option>
+                  <% idiomas.forEach(function(idioma) { %>
+                    <option value="<%= idioma.name %>">
+                      <%= idioma.name %>
+                    </option>
+                    <% }); %>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="labels_crear_clase">Nombre de la clase</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Escribe..." maxlength="40"
+                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  required />
+                <small><i>(Escribe un título corto, máximo 40 caracteres)</i></small>
+              </div>
+              <div class="form-group">
+                <label class="labels_crear_clase">Descripción</label>
+                <input type="text" class="form-control" name="description" id="description" placeholder="Escribe..."
+                  maxlength="250"
+                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  required />
+                <small><i>(Escribe una descripción breve, máximo 250 caracteres)</i></small>
+              </div>
+
+              <div class="form-group">
+                <label class="labels_crear_clase">Imagen</label>
+                <input type="text" class="form-control" name="image" id="image" placeholder="URL" required>
+              </div>
+              <div class="form-group">
+                <label class="labels_crear_clase">¿Publicar?</label>
+                <select class="custom-select" name="published" id="published" aria-label="Default select example"
+                  required>
+                  <option value="" selected>Selecciona una opción</option>
+                  <option value="false">¡Aún no!</option>
+                  <option value="true">¡Si!</option>
+                </select>
+              </div>
+              <br><br>
+              <div align="center">
+                <a href="javascript: history.go(-1)"><button type="button" style="width: 200px;"
+                    class="btn btn-danger">Cancelar</button></a>
+                <button type="submit" class="btn btn-primary" style="width: 200px;">Crear</button>
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <% include ../partials/footerUser %>
+      <% include ../partials/scriptsUser %>

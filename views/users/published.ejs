@@ -1,0 +1,77 @@
+<% include ../partials/headUser %>
+    <% include ../partials/navbarUser %>
+
+        <section>
+
+            <h1>Clases publicadas</h1>
+            <hr>
+            <br>
+
+            <div class="row">
+
+                <% if(clases.length> 0) { %>
+                    <% clases.forEach(function(clase) { %>
+
+                        <div class="col-4">
+                            <div class="card border-success mb-3" style="max-width: 246rem;">
+                                <div class="card-header">
+                                    <i class="fa fa-globe"></i>&nbsp; <%= clase.language %>
+                                        <div style="float: right; background: rgb(177, 228, 177); border-radius: 10%;">
+                                            &nbsp;Publicada&nbsp;</div>
+                                </div>
+                                <a href="/users/my_class?id=<%= clase._id %>"><img class="card-img-top"
+                                        src="<%= clase.image %>" alt="Card image cap"></a>
+                                <div class="card-body text-dark">
+                                    <small style="float: right;"><i class="fa fa-calendar"></i>&nbsp; <%=
+                                            clase.createdAt.toLocaleDateString() %></small>
+                                    <small><i class="fa fa-user"></i>&nbsp; <%= clase.username %></small>
+                                    <br><br>
+                                    <a id="a_nombre_clase" href="/users/my_class?id=<%= clase._id %>">
+                                        <h5 class="card-title">
+                                            <%= clase.name %>
+                                        </h5>
+                                    </a>
+                                    <p class="card-text">
+                                    <details>
+                                        <summary>Descripción</summary>
+                                        <div style="text-align: justify;">
+                                            <p>
+                                                <%= clase.description %>
+                                            </p>
+                                        </div>
+                                    </details>
+                                    </p>
+                                </div>
+                                <div class="card-footer">
+                                    <a class="btn btn-warning" href="/users/edit_class?id=<%= clase._id %>">Editar</a>
+                                    <script>
+                                        function alerta() {
+                                            res = confirm('¿Estás seguro que deseas eliminar la clase publicada?');
+                                            if (res == true) {
+                                                return true;
+                                            } else {
+                                                return false;
+                                            }
+                                        }
+                                    </script>
+                                    <a href="/users/delete_class/<%= clase._id %>"><button type="button"
+                                            class="btn btn-danger" onclick="return alerta()">Eliminar</button></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% }); %>
+                            <% } else { %>
+
+                                <div align="center" style="padding-left: 470px; padding-top: 120px;">
+                                    <img src="https://images.vexels.com/media/users/3/153867/isolated/preview/cf9017f933fb7aa4c72f41cddd99612a-emoticon-de-trazo-coloreado-triste-by-vexels.png"
+                                        width="200px" height="auto" alt="">
+                                    <br><br>
+                                    <h6>Aún no tienes clases publicadas</h6>
+                                </div>
+                                <% } %>
+            </div>
+        </section>
+
+        <% include ../partials/footerUser %>
+            <% include ../partials/scriptsUser %>

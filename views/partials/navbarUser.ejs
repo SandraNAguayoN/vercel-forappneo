@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/users/home" style="padding-left: 40px; padding-right: 20px;">LangMe</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+    </ul>
+
+
+    <ul class="navbar-nav mr-auto" id="ul_clases">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Clases
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/users/drafts"><i class="fa fa-bookmark"></i>&nbsp;&nbsp;Borradores</a>
+          <a class="dropdown-item" href="/users/published"><i class="fa fa-book"></i>&nbsp;&nbsp;Clases publicadas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/users/create_class"><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Crear
+            clase</a>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav mr-auto" id="ul_perfil">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+
+          <% if(usuario.image) { %>
+            <img id="userPhoto" src="<%= usuario.image %>" width="30" height="30" alt="">
+
+            <% } else { %>
+              <img id="userPhoto" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
+                width="30" height="30" alt="">
+              <% } %>
+                &nbsp;&nbsp;
+                <%= usuario.username %>&nbsp;<%= usuario.lastname %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/users/profile"><i class="fa fa-user-circle-o"></i>&nbsp;&nbsp; Mi perfil</a>
+          <a class="dropdown-item" href="/users/edit_profile"><i class="fa fa-edit"></i>&nbsp;&nbsp; Editar perfil</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/logout"><i class="fa fa-power-off"></i>&nbsp;&nbsp; Cerrar sesión</a>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</nav>

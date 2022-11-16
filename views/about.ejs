@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include partials/headIndex %>
+</head>
+
+<body>
+  <% include partials/navbarIndex %>
+    <section>
+      <h1>
+        <%= title %>
+      </h1>
+      <hr>
+      <div style="text-align: justify;">
+        <p>LangMe es una plataforma de aprendizaje en línea de varios idiomas para cualquier usuario del internet,
+          permitiendo la libertad de aprender cualquier idioma disponble que el uuario desee, así como empezar a enseñar
+          a otros a traves de clases con lecciones, compartiendo su conocimiento sobre algún idioma y respondiendo
+          dudas.</p>
+      </div>
+      <div style="padding:10px"></div>
+      <div id="accordion">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button id="link-1" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                Objetivo
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+              Fomentar el aprendizaje de idiomas en los usuarios para la comprensión de los mismos y extender la
+              comunicacion entre los distintos usuarios internacionalmente.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button id="link-2" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                Misión
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+              Facilitar el material de estudio para el aprendizaje en línea del usuario común de internet en sus
+              disitintos ambitos para su formación integral.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button id="link-3" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseThree">
+                Visión
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              Ser reconocidos por fomentar al aprendizaje de los usuarios en línea y ser la plataforma elegida por los
+              usuarios.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h5 class="mb-0">
+              <button id="link-4" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"
+                aria-expanded="false" aria-controls="collapseFour">
+                Valores
+              </button>
+            </h5>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+            <div class="card-body">
+              <ul>
+                <li>Respeto</li>
+                <li>Honestidad</li>
+                <li>Responsabilidad</li>
+                <li>Colaboración</li>
+                <li>Tolerancia</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <% include partials/footerIndex %>
+</body>
+<% include partials/scriptsIndex %>
+
+</html>

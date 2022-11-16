@@ -1,0 +1,30 @@
+
+const express = require('express');
+var mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const Usuario = require("../models/userModel.js");
+const Idioma = require("../models/languageModel.js");
+const Clase = require("../models/classModel.js");
+const Leccion = require("../models/lessonModel.js");
+const Comentario = require("../models/commentModel.js");
+const titles = require('../config/titles');
+
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
+
+
+module.exports = {
+
+    //Crear comentario
+    createComment: async (req, res) => {
+        console.log(req.body);
+        const comentario = new Comentario(req.body);
+        await comentario.save();
+        req.flash('success_msg', 'Comentario publicado');
+        res.redirect('/users/home');
+    },
+
+};
+

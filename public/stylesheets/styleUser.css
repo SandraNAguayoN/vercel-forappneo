@@ -1,0 +1,255 @@
+body{
+    background: rgb(234,255,249);
+    background: linear-gradient(0deg, rgba(234,255,249,1) 41%, rgba(255,236,236,1) 100%);
+}
+section {
+    padding: 50px;
+    margin-bottom: 200px;
+
+}
+
+#a_editar_perfil{
+    text-decoration: none;
+}
+
+#btn_editar_perfil{
+    margin-left: 110px;
+}
+
+#div_perfil {
+    padding: 50px 700px 0 50px;
+}
+
+#ul_perfil {
+    padding-left: 500px;
+    float: right;
+}
+
+#h1_editar_perfil {
+    text-align: center;
+  }
+
+  #card_editar_perfil {
+    max-width: 600px; 
+    text-align: justify;
+  }
+
+  #userPhoto {
+    border-radius:150px;
+  }
+
+
+  .h5_carrousel {
+      color: white;
+  }
+
+  #h1_crear_clase{
+      color: black;
+  }
+
+  .labels_crear_clase {
+      color: black;
+  }
+
+  #card_crear_clase{
+      text-align: justify;
+      margin: 0 200px 0 200px;
+  }
+
+  .card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+
+}
+
+/** Start image class header**/
+#wrapper {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  #header_clase {
+    height: 350px;
+    width: 100%;
+    overflow: hidden;
+    /* The two lines below make the photo opaque. No Apacity = 1  Full Opacity = 0  :-) */
+    opacity: 0.5;
+    line-height: 2.8em;
+  }
+  
+.text_header_clase {
+    margin-top: 1em;
+    font-family: Arial, San-serif;
+    /*font-size: 70px;*/
+    Text-align: center;
+    color: rgb(255, 255, 255);
+    width: 100%;  
+    text-shadow: 2px 2px 4px #094100;
+  }
+  /*  filter: alpha(opacity=60); */
+
+  #div_clase_info{
+    padding: 10px; 
+    margin-top: 20px;
+  }
+
+  .text-card-black
+{
+  color: black;
+}
+
+#a_nombre_clase{
+  text-decoration: none;
+  color: rgb(95, 95, 95);
+}
+
+#a_nombre_clase:hover{
+  text-decoration: none;
+  color: rgb(113, 196, 134);
+}
+#a_nombre_leccion{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+#a_nombre_leccion:hover{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+  /** End image class header**/
+
+  .campos_ocultos{
+    visibility: hidden;
+  }
+
+  /*** Start lesson content ***/
+
+  .div_leccion_contenido {
+    width: 100%;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  }
+
+  .hero::before,
+  .hero::after {
+    content: "";
+  }
+
+  .hero::before {
+    float: left;
+    height: 40vh;
+    min-height: 320px;
+    max-height: 640px;
+  }
+
+  @media (min-width: 820px) {
+    .hero::before {
+      height: 60vh;
+    }
+  }
+
+  .hero::after {
+    display: table;
+    clear: both;
+  }
+
+  .hero__container {
+    padding: 3rem;
+  }
+
+  .hero__image {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .hero__title {
+    margin: 0;
+    color: #fff;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    /*font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;*/
+  }
+
+  #p_fecha_leccion {
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+  }
+
+    /*** End lesson content ***/
+
+    #hr_leccion{
+      border-top: 2px solid rgb(105, 105, 105);
+    }
+
+  .texto_sombra{
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+  }
+
+
+
+  /**Start user profile*/
+  #imagen_perfil {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin-right: 100px;
+    width: 500px; 
+    height: auto; 
+    float: right; 
+    border-radius: 10%;
+  }
+  
+  #imagen_perfil:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+  
+  #imagen_url_perfil {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin-right: 100px;
+    width: 500px; 
+    height: auto; 
+    float: right; 
+    border-radius: 10%;
+  }
+  
+  #imagen_url_perfil:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+  
+  #imagen_default_perfil {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin-right: 100px;
+    width: 500px; 
+    height: auto; 
+    float: right; 
+    border-radius: 10%;
+  }
+  
+  #imagen_default_perfil:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+
+  /**End user profile */

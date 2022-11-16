@@ -1,0 +1,61 @@
+<% include ../partials/headUser %>
+  <% include ../partials/navbarUser %>
+
+    <section>
+      <h1 align="center"><i class="fa fa-user"></i> Mi perfil</h1>
+      <hr>
+      <%- include('../partials/mensajesUser'); %>
+        <br><br>
+        <% if(usuario.image) { %>
+          <a href="<%= usuario.image %>"><img id="imagen_perfil" src="<%= usuario.image %>" alt=""></a>
+
+          <% } else { %>
+            <img id="imagen_default_perfil" src="https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png"
+              alt="">
+            <% } %>
+
+              <div id="div_perfil">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre:</th>
+                      <td scope="col">
+                        <%= usuario.username %>
+                      </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Apellidos:</th>
+                      <td>
+                        <%= usuario.lastname %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Fecha de cumpleaños:</th>
+                      <td>
+                        <%= usuario.birthdate.toLocaleDateString() %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Correo electrónico:</th>
+                      <td>
+                        <%= usuario.email %>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Te uniste:</th>
+                      <td>
+                        <%= usuario.createdAt.toLocaleDateString() %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button id="btn_editar_perfil" class="btn btn-outline-dark"><a id="a_editar_perfil"
+                    href="/users/edit_profile"><i class="fa fa-pencil-square-o"></i> Editar información</a></button>
+              </div>
+
+    </section>
+
+    <% include ../partials/footerUser %>
+      <% include ../partials/scriptsUser %>
