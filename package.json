@@ -4,8 +4,6 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "heroku-prebuild": "npm install -f",
-    "heroku-postbuild": "npm run start"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
