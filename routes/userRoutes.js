@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const userController = require('../controllers/userController.js');
-const classController = require('../controllers/classController.js');
-const lessonController = require('../controllers/lessonController.js');
+const publicationController = require('../controllers/publicationController.js');
 const commentController = require('../controllers/commentController.js');
-const languageController = require('../controllers/languageController.js');
 const { ensureAuthenticated } = require('../config/auth');
 
 const path = require('path');
@@ -38,43 +36,22 @@ router.post('/users/edit_profile/:id', ensureAuthenticated, userController.editP
 router.get('/users/view_user_profile', ensureAuthenticated, userController.userProfileView);
 
 
-/******classController******/
+/******publicationController******/
 
-//Ir al la pantalla de crear clase
-router.get('/users/create_class', ensureAuthenticated, classController.createClassView);
-//Crear clase
-router.post('/create_class', ensureAuthenticated, classController.createClass);
-//Ir a la pantalla de clases en borrador creadas por el usuario
-router.get('/users/drafts', ensureAuthenticated, classController.draftsView);
-//Ir a la pantalla de clases publicadas por el usuario
-router.get('/users/published', ensureAuthenticated, classController.publishedView);
-//Ir a la pantalla de editar clase
-router.get('/users/edit_class', ensureAuthenticated, classController.editClassView);
-//Editar una clase
-router.post('/edit_class/:id', ensureAuthenticated, classController.editClass);
-//Eliminar una clase
-router.get('/users/delete_class/:id', ensureAuthenticated, classController.deleteClass);
-//Ver contenido de una clase creada por el usuario
-router.get('/users/my_class', ensureAuthenticated, classController.myClassView);
-//Ver contenido de una clase disponible 
-router.get('/users/class', ensureAuthenticated, classController.classView);
-
-
-/******lessonController******/
-
-//Ir al la pantalla de crear lección
-router.get('/users/create_lesson', ensureAuthenticated, lessonController.createLessonView);
-//Crear lección
-router.post('/create_lesson', ensureAuthenticated, lessonController.createLesson);
-//Ir a la pantalla de editar lección
-router.get('/users/edit_lesson', ensureAuthenticated, lessonController.editLessonView);
-//Editar una lección
-router.post('/edit_lesson/:id', ensureAuthenticated, lessonController.editLesson);
-//Eliminar una lección
-router.get('/users/delete_lesson/:id', ensureAuthenticated, lessonController.deleteLesson);
-//Ver contenido de una lección
-router.get('/users/lesson', ensureAuthenticated, lessonController.lessonView);
-
+//Ir al la pantalla de crear publicacion
+router.get('/users/create_publication', ensureAuthenticated, publicationController.createPublicationView);
+//Crear publicacion
+router.post('/create_publication', ensureAuthenticated, publicationController.createPublication);
+//Ir a la pantalla de editar publicacion
+router.get('/users/edit_publication', ensureAuthenticated, publicationController.editPublicationView);
+//Editar una publicacion
+router.post('/edit_publication/:id', ensureAuthenticated, publicationController.editPublication);
+//Eliminar una publicacion
+router.get('/users/delete_publication/:id', ensureAuthenticated, publicationController.deletePublication);
+//Ver contenido de una publicacion creada por el usuario
+router.get('/users/my_publications', ensureAuthenticated, publicationController.myPublicationsView);
+//Ver contenido de una publicacion disponible 
+router.get('/users/publication', ensureAuthenticated, publicationController.publicationView);
 
 /******commentController******/
 
@@ -82,9 +59,5 @@ router.get('/users/lesson', ensureAuthenticated, lessonController.lessonView);
 router.post('/create_comment', ensureAuthenticated, commentController.createComment);
 
 
-/******languageController******/
-
-//Ver todas las clases de la categoría de un idioma
-router.get('/users/category', ensureAuthenticated, languageController.categoryView);
 
 module.exports = router;

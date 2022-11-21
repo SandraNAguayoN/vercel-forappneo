@@ -24,7 +24,7 @@ var app = express();
 
 
 //Conexión a la base de datos MongoDB
-mongoose.connect('mongodb+srv://test:test@cluster0.32ht2.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect("mongodb+srv://test:test@cluster0.32ht2.mongodb.net/forappneo?retryWrites=true&w=majority");
 var db = mongoose.connection;
 db.on('error', function (err) {
   console.log('connection error', err)

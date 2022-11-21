@@ -1,0 +1,38 @@
+<% include ../partials/headUser %>
+    <% include ../partials/navbarUser %>
+
+        <div id="wrapper">
+
+            <header id="header_clase"
+                style="background: white url('<%= publication.image %>') no-repeat center center; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;">
+
+                <div align="center">
+
+                    <div id="div_clase_info">
+
+                        <div class="card" style="width: 25rem;">
+                            <div class="card-body text-card-black">
+                                <h1 class="card-title">
+                                    <%= publicacion.name %>
+                                </h1>
+                                <p></p>
+                                <h6 class="card-subtitle mb-2"><i class="fa fa-globe"></i>&nbsp;&nbsp;
+                                </h6>
+                                <h6 class="card-text"><i class="fa fa-calendar"></i>&nbsp;<%=
+                                        publicacion.createdAt.toLocaleDateString() %>
+                                </h6>
+                                <p class="card-text"><i class="fa fa-user"></i>&nbsp;&nbsp;<%= publicacion.username %>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+        </div>
+        
+<% include ../partials/footerUser %>
+<% include ../partials/scriptsUser %>

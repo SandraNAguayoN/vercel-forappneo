@@ -1,0 +1,51 @@
+<% include ../partials/headUser %>
+  <% include ../partials/navbarUser %>
+
+    <section>
+
+      <div align="center">
+        <div class="card text-white bg-warning mb-3" id="card_crear_clase">
+          <div class="card-header">
+            <h1 id="h1_crear_clase"><i class="fa fa-pencil-square-o"></i> Editar publicación</h1>
+          </div>
+          <div class="card-body">
+            <form action="/edit_publication/<%= publicacion._id %>" method="post">
+              <div>
+                <input type="text" name="user" id="user" value="<%= usuario.email %>" style="visibility: hidden;">
+                <input type="text" name="username" id="username" value="<%= usuario.username %> <%= usuario.lastname %>"
+                  style="visibility: hidden;">
+              </div>
+              <div class="form-group">
+                <label class="labels_crear_clase">Nombre de la publicación</label>
+                <input type="text" class="form-control" name="name" id="name" value="<%= publicacion.name %>"
+                  placeholder="Escribe..." required>
+              </div>
+              <div class="form-group">
+                <label class="labels_crear_clase">Descripción</label>
+                <input type="text" class="form-control" name="description" id="description"
+                  value="<%= publicacion.description %>" placeholder="Escribe..." required>
+              </div>
+
+              <div class="form-group">
+                <label class="labels_crear_clase">Imagen</label>
+                <input type="text" class="form-control" name="image" id="image" value="<%= publicacion.image %>"
+                  placeholder="URL" required>
+              </div>
+              <br><br>
+              <div align="center">
+                <a href="javascript: history.go(-1)"><button type="button" style="width: 200px;"
+                    class="btn btn-danger">Cancelar</button></a>
+                <button type="submit" class="btn btn-light" style="width: 200px;">Actualizar</button>
+
+              </div>
+
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <% include ../partials/footerUser %>
+      <% include ../partials/scriptsUser %>

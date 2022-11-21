@@ -14,36 +14,27 @@
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 800px;">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <% if(idiomas.length> 0) { %>
-                <% idiomas.forEach(function(idioma) { %>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="<%= idioma.name %>"></li>
-                  <% }); %>
-                    <% } %>
-
+              <li data-target="#carouselExampleIndicators" data-slide-to="aqui va el name"></li>
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img class="d-block w-100" src="../images/idiomas3.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                   <h5 class="h5_carrousel">Aprende distintos idiomas!!!</h5>
-                  <p>Conoce los idiomas disponibles y aprende con las clases.</p>
+                  <p>Conoce los idiomas disponibles y aprende con las publicaciones.</p>
                 </div>
               </div>
 
-              <% if(idiomas.length> 0) { %>
-                <% idiomas.forEach(function(idioma) { %>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="<%= idioma.image %>" alt="Second slide">
-                    <div class="carousel-caption d-none d-md-block">
-                      <a href="/users/category?name=<%= idioma.name %>">
-                        <h1 class="h5_carrousel texto_sombra"><i class="fa fa-tag"></i>&nbsp; <%= idioma.name %>
-                        </h1>
-                      </a>
-                      <p>...</p>
-                    </div>
-                  </div>
-                  <% }); %>
-                    <% } %>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <a href="#">
+                    <h1 class="h5_carrousel texto_sombra"><i class="fa fa-tag"></i>&nbsp;
+                    </h1>
+                  </a>
+                  <p>...</p>
+                </div>
+              </div>
 
 
 
@@ -63,36 +54,36 @@
     </section>
 
     <section>
-      <h1><i class="material-icons" style="font-size: 40px;">auto_stories</i> Clases disponibles</h1>
+      <h1><i class="material-icons" style="font-size: 40px;">auto_stories</i> Posts publicados</h1>
       <hr>
 
       <div class="container-fluid">
         <div class="row">
 
-          <% if(clases.length> 0) { %>
-            <% clases.forEach(function(clase) { %>
+          <% if(publicaciones.length> 0) { %>
+            <% publicaciones.forEach(function(publicacion) { %>
               <div class="col-12 mt-3">
                 <div class="card">
                   <div class="card-horizontal">
                     <div class="img-square-wrapper">
-                      <a href="/users/class?id=<%= clase._id %>"><img class="" src="<%= clase.image %>" width="400px"
-                          height="auto" alt="Card image cap"></a>
+                      <a href="/users/publication?id=<%= publicacion._id %>"><img class=""
+                          src="<%= publicacion.image %>" width="400px" height="auto" alt="Card image cap"></a>
                     </div>
                     <div class="card-body">
                       <small style="float: right;"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<%=
-                          clase.createdAt.toLocaleDateString() %></small>
-                      <p><i class="fa fa-user"></i>&nbsp;&nbsp;<%= clase.username %>
+                          publicacion.createdAt.toLocaleDateString() %></small>
+                      <p><i class="fa fa-user"></i>&nbsp;&nbsp;<%= publicacion.username %>
                       </p>
                       <br>
                       <h4 class="card-title">
-                        <%= clase.name %>
+                        <%= publicacion.name %>
                       </h4>
                       <br>
                       <details>
                         <summary>Descripción</summary>
                         <div style="text-align: justify;">
                           <p>
-                            <%= clase.description %>
+                            <%= publicacion.description %>
                           </p>
                         </div>
                       </details>
@@ -102,7 +93,7 @@
                   </div>
                   <div class="card-footer">
                     <a href=""></a>
-                    <a href="/users/class?id=<%= clase._id %>" class="btn btn-primary">Ver clase</a>
+                    <a href="/users/publication?id=<%= publicacion._id %>" class="btn btn-primary">Ver publicación</a>
                   </div>
                 </div>
               </div>

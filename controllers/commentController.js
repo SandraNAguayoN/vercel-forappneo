@@ -4,9 +4,7 @@ var mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const Usuario = require("../models/userModel.js");
-const Idioma = require("../models/languageModel.js");
-const Clase = require("../models/classModel.js");
-const Leccion = require("../models/lessonModel.js");
+const Publicacion = require("../models/publicationModel.js");
 const Comentario = require("../models/commentModel.js");
 const titles = require('../config/titles');
 

@@ -3,8 +3,7 @@ var mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const Usuario = require("../models/userModel.js");
-const Clase = require("../models/classModel.js");
-const Idioma = require("../models/languageModel.js");
+const Publicacion = require("../models/publicationModel.js");
 const titles = require('../config/titles');
 
 const multer = require('multer');
@@ -149,9 +148,8 @@ module.exports = {
     //Ir a la pantalla principal del usuario
     homeUserView: async (req, res) => {
         const user = req.user;
-        const classes = await Clase.find({ published: "true" }).lean();
-        const languages = await Idioma.find({}).lean();
-        res.render('../views/users/home', { title: titles.view.homeUser, usuario: user, clases: classes, idiomas: languages });
+        const publications = await Publicacion.find({}).lean();
+        res.render('../views/users/home', { title: titles.view.homeUser, usuario: user, publicaciones: publications });
     },
 
     // Perfil de usuario
