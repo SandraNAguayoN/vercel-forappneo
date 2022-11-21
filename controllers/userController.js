@@ -1,6 +1,6 @@
 const express = require('express');
 var mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const Usuario = require("../models/userModel.js");
 const Publicacion = require("../models/publicationModel.js");
