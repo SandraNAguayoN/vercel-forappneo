@@ -24,11 +24,12 @@
               </div>
               <div class="form-group">
                 <label class="labels_crear_clase">Descripción</label>
-                <input type="text" class="form-control" name="description" id="description" placeholder="Escribe..."
-                  maxlength="250"
-                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                  required />
-                <small><i>(Escribe una descripción breve, máximo 250 caracteres)</i></small>
+                
+                <textarea class="form-control" name="description" id="description" placeholder="Escribe..." rows="3"
+                maxlength="500"
+                oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                required ></textarea>
+                <small><i>(Escribe una descripción breve, máximo 500 caracteres)</i></small>
               </div>
 
               <div class="form-group">

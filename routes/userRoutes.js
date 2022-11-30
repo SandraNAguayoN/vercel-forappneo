@@ -32,6 +32,8 @@ router.get('/users/profile', ensureAuthenticated, userController.profile);
 router.get('/users/edit_profile', ensureAuthenticated, userController.editProfileView);
 // Editar perfil de usuario
 router.post('/users/edit_profile/:id', ensureAuthenticated, userController.editProfile);
+// Editar foto de perfil de usuario
+router.post('/users/edit_photo_profile/:id', ensureAuthenticated, userController.editPhotoProfile);
 //Ver el perfil de un usuario
 router.get('/users/view_user_profile', ensureAuthenticated, userController.userProfileView);
 

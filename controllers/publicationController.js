@@ -65,8 +65,8 @@ module.exports = {
     //Ver contenido de una publicacion disponible 
     publicationView: async (req, res) => {
         const user = req.user;
-        const publication = await Publication.findById(req.query.id).lean();
-        console.log(pubication);
+        const publication = await Publicacion.findById(req.query.id).lean();
+        console.log(publication);
         res.render('users/publication', { title: titles.view.publicationView, usuario: user, publicacion: publication });
     },
 

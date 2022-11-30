@@ -5,7 +5,7 @@ var PublicationSchema = new Schema({
     user: {type: String, required: true},
     username: { type: String, required: true},
     name: {type: String, required: true, max: 200},
-    description: { type: String, required: true },
+    description: { type: String, required: true, max: 500 },
     image: { type: String }
   },
   {

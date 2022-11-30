@@ -2,13 +2,11 @@
   <% include ../partials/navbarUser %>
 
     <section>
-      <h1>Bienvenido(a) <%= usuario.username %>
-      </h1>
+      <h4>Bienvenido(a) <%= usuario.username %>
+      </h4>
       <hr>
       <%- include('../partials/mensajesUser'); %>
         <br><br>
-        <h3><i class="material-icons" style="font-size: 30px;">language</i> Idiomas disponibles</h3>
-        <br>
         <div align="center">
 
           <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 800px;">
@@ -18,15 +16,15 @@
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="../images/idiomas3.jpg" alt="First slide">
+                <img class="d-block w-100" src="../images/slide_1.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5 class="h5_carrousel">Aprende distintos idiomas!!!</h5>
-                  <p>Conoce los idiomas disponibles y aprende con las publicaciones.</p>
+                  <h5 class="h5_carrousel">Conectate a ForAppNeo!!!</h5>
+                  <p>Conoce la plataforma.</p>
                 </div>
               </div>
 
               <div class="carousel-item">
-                <img class="d-block w-100" src="" alt="Second slide">
+                <img class="d-block w-100" src="../images/slide_2.jpg" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
                   <a href="#">
                     <h1 class="h5_carrousel texto_sombra"><i class="fa fa-tag"></i>&nbsp;
@@ -36,7 +34,16 @@
                 </div>
               </div>
 
-
+              <div class="carousel-item">
+                <img class="d-block w-100" src="../images/slide_3.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <a href="#">
+                    <h1 class="h5_carrousel texto_sombra"><i class="fa fa-tag"></i>&nbsp;
+                    </h1>
+                  </a>
+                  <p>...</p>
+                </div>
+              </div>
 
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -51,59 +58,64 @@
 
         </div>
 
-    </section>
+        <div>
+          <br><br><br><br>
+        </div>
 
-    <section>
-      <h1><i class="material-icons" style="font-size: 40px;">auto_stories</i> Posts publicados</h1>
-      <hr>
+        <h1 id="posts_publicados"><i class="material-icons" style="font-size: 40px;">auto_stories</i> Posts publicados</h1>
+        <hr>
 
-      <div class="container-fluid">
-        <div class="row">
+        <div class="card-columns">
 
           <% if(publicaciones.length> 0) { %>
             <% publicaciones.forEach(function(publicacion) { %>
-              <div class="col-12 mt-3">
-                <div class="card">
-                  <div class="card-horizontal">
-                    <div class="img-square-wrapper">
-                      <a href="/users/publication?id=<%= publicacion._id %>"><img class=""
-                          src="<%= publicacion.image %>" width="400px" height="auto" alt="Card image cap"></a>
-                    </div>
-                    <div class="card-body">
-                      <small style="float: right;"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<%=
-                          publicacion.createdAt.toLocaleDateString() %></small>
-                      <p><i class="fa fa-user"></i>&nbsp;&nbsp;<%= publicacion.username %>
-                      </p>
-                      <br>
-                      <h4 class="card-title">
-                        <%= publicacion.name %>
-                      </h4>
-                      <br>
-                      <details>
-                        <summary>Descripción</summary>
-                        <div style="text-align: justify;">
-                          <p>
-                            <%= publicacion.description %>
-                          </p>
-                        </div>
-                      </details>
-                      <p class="card-text"></p>
 
-                    </div>
+              <div class="card">
+                <div class="img-square-wrapper">
+
+                  <a href="/users/publication?id=<%= publicacion._id %>"><img class="card-img-top"
+                      src="<%= publicacion.image %>" width="400px" height="auto" alt="Card image cap"></a>
+                  <div class="card-body">
+                    <small style="float: right;"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<%=
+                        publicacion.createdAt.toLocaleDateString() %></small>
+                    <p><i class="fa fa-user"></i>&nbsp;&nbsp;<%= publicacion.username %>
+                    </p>
+                    <br>
+                    <h5 class="card-title">
+                      <%= publicacion.name %>
+                    </h5>
+
+                    <br>
+                    <details>
+                      <summary>Descripción</summary>
+                      <div style="text-align: justify;">
+                        <p class="card-text">
+                          <%= publicacion.description %>
+                        </p>
+                      </div>
+                    </details>
+
                   </div>
+
                   <div class="card-footer">
                     <a href=""></a>
                     <a href="/users/publication?id=<%= publicacion._id %>" class="btn btn-primary">Ver publicación</a>
                   </div>
+
                 </div>
               </div>
+
+
               <% }); %>
                 <% } %>
 
         </div>
-      </div>
 
     </section>
 
-    <% include ../partials/footerUser %>
-      <% include ../partials/scriptsUser %>
+  <section>
+
+  </section>
+
+      <% include ../partials/footerUser %>
+        <% include ../partials/scriptsUser %>

@@ -4,31 +4,39 @@
         <div id="wrapper">
 
             <header id="header_clase"
-                style="background: white url('<%= publication.image %>') no-repeat center center; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;">
+                style="background: white url('<%= publicacion.image %>') no-repeat center center; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;">
 
                 <div align="center">
 
                     <div id="div_clase_info">
 
-                        <div class="card" style="width: 25rem;">
+                        <div class="card" style="width: 70rem;">
                             <div class="card-body text-card-black">
                                 <h1 class="card-title">
                                     <%= publicacion.name %>
                                 </h1>
-                                <p></p>
-                                <h6 class="card-subtitle mb-2"><i class="fa fa-globe"></i>&nbsp;&nbsp;
-                                </h6>
                                 <h6 class="card-text"><i class="fa fa-calendar"></i>&nbsp;<%=
                                         publicacion.createdAt.toLocaleDateString() %>
                                 </h6>
                                 <p class="card-text"><i class="fa fa-user"></i>&nbsp;&nbsp;<%= publicacion.username %>
                                 </p>
+
+                                <div style="text-align: justify;">
+                                    <p id="texto-contenido">
+                                        <%= publicacion.description %>
+                                    </p>
+                                </div>
+
+                                <img class="card-img-bottom" style = "height: auto; width:500px; " src="<%= publicacion.image %>" alt="Card image cap">
                             </div>
+
                         </div>
-
+                        
                     </div>
-
+                    
                 </div>
+
+                
 
             </header>
 

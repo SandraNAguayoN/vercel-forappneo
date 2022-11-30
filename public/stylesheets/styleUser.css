@@ -21,7 +21,7 @@ section {
 }
 
 #ul_perfil {
-    padding-left: 500px;
+    padding-left: 350px;
     float: right;
 }
 
@@ -69,11 +69,11 @@ section {
   }
   
   #header_clase {
-    height: 350px;
+    height: auto; /* Para que se adapate al tamaño del contenido*/
     width: 100%;
     overflow: hidden;
     /* The two lines below make the photo opaque. No Apacity = 1  Full Opacity = 0  :-) */
-    opacity: 0.5;
+    opacity: 0.75;
     line-height: 2.8em;
   }
   

@@ -166,8 +166,7 @@ module.exports = {
         res.render('users/edit_profile', { title: titles.view.editProfileView, usuario: user });
     },
 
-    // Editar perfil de usuario
-    editProfile: async (req, res, next) => {
+    editPhotoProfile: async (req, res, next) => {
         const { id } = req.params;
 
         // Constantes con multer para subir imagen
@@ -186,9 +185,6 @@ module.exports = {
 
         uploadImage(req, res, async (err) => {
 
-            const username = req.body.username;
-            const lastname = req.body.lastname;
-            const birthdate = req.body.birthdate;
             const image = '../profiles/' + req.file.originalname;
 
             //Verifica que la imagen no sea muy grande
@@ -196,10 +192,58 @@ module.exports = {
                 errors.push({ msg: "La imagen es muy grande." });
                 return res.send(err);
             }
-            await Usuario.updateOne({ _id: id }, { username, lastname, birthdate, image });
-            req.flash('success_msg', 'Perfil actualizado');
+            await Usuario.updateOne({ _id: id }, { image });
+            req.flash('success_msg', 'Imagen de perfil actualizada');
             res.redirect('/users/profile');
         });
+
+        
+    },
+
+    // Editar perfil de usuario
+    editProfile: async (req, res, next) => {
+        const { id } = req.params;
+
+        console.log(req.body);
+        
+        if((req.body.username != "" && req.body.username != null && req.body.username != undefined) 
+        && (req.body.lastname != "" && req.body.lastname != null && req.body.lastname != undefined)
+        && (req.body.birthdate != "" && req.body.birthdate != null && req.body.birthdate != undefined)) {
+
+            const username = req.body.username;
+            const lastname = req.body.lastname;
+            const birthdate = req.body.birthdate;
+
+            await Usuario.updateOne({ _id: id }, { username, lastname, birthdate});
+            req.flash('success_msg', 'Perfil actualizado');
+            res.redirect('/users/profile');
+        } 
+
+        if((req.body.username != "" && req.body.username != null && req.body.username != undefined) 
+        && (req.body.lastname != "" && req.body.lastname != null && req.body.lastname != undefined)
+        && (req.body.birthdate == "" || req.body.birthdate == null || req.body.birthdate == undefined)) {
+
+            const username = req.body.username;
+            const lastname = req.body.lastname;
+            const birthdate = req.body.birthdate;
+
+            await Usuario.updateOne({ _id: id }, { username, lastname });
+            req.flash('success_msg', 'Perfil actualizado');
+            res.redirect('/users/profile');
+        } 
+
+        if((req.body.username != "" && req.body.username != null && req.body.username != undefined) 
+        && (req.body.lastname == "" || req.body.lastname == null || req.body.lastname == undefined)
+        && (req.body.birthdate == "" || req.body.birthdate == null || req.body.birthdate == undefined)) {
+
+            const username = req.body.username;
+            const lastname = req.body.lastname;
+            const birthdate = req.body.birthdate;
+
+            await Usuario.updateOne({ _id: id }, { username });
+            req.flash('success_msg', 'Perfil actualizado');
+            res.redirect('/users/profile');
+        } 
 
     },
 
