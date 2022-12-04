@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
   res.render('index');
 });*/
 
-//Configuración para las sesiones
+//Configuración para las sesiones y passport
 app.use(session({ secret: 'secret', saveUninitialized: true, resave: true }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -51,18 +51,10 @@ app.use((req, res, next) => {
   res.locals.error = req.flash('error');
   next();
 });
-// Configurando de Passport
-var expressSession = require('express-session');
-app.use(expressSession({ secret: 'mySecretKey',   saveUninitialized: true,
-resave: true }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 //Configuración de BodyParser para manejo de datos en cuerpo de la solicitud
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
 
 
 // view engine setup
