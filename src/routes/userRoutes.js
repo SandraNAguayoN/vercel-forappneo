@@ -11,7 +11,8 @@ router.get('public', express.static(path.join(__dirname, 'public')));
 /******userController******/
 
 //Ir al la pantalla de inicio de la aplicación
-router.get('/', userController.home);
+/*router.get('/', userController.home);*/
+
 //Ir al la pantalla acerca de
 router.get('/about', userController.about);
 //Ir a la vista del inicio de sesión
