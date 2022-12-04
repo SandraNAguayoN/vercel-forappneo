@@ -1,7 +1,6 @@
 module.exports = {
     ensureAuthenticated: function (req, res, next) {
-        if (req.isAuthenticated()) {
-            req.session.save();
+        if (req.isAuthenticated()) {       
             return next();
         } else {
             //Mensaje de error cuando se intenta acceder al perfil sin haber inciado sesión previamente
