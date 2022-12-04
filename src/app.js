@@ -3,27 +3,25 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var logger = require('morgan');
-const mongoose = require('mongoose');
-//////
-var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+
+//////
 var session = require('express-session');
-const passport = require('passport');
-require("./config/passport")(passport);
+var bodyParser = require('body-parser');
 const flash = require('connect-flash');
-var usersRouter = require('./routes/userRoutes');
+const passport = require('passport');
 //Fomato para fecha n minutos atrás
 const { format } = require('timeago.js');
 
+require("./config/passport")(passport);
+
+var usersRouter = require('./routes/userRoutes');
+
+const mongoose = require('mongoose');
+
 var app = express();
 
-//Configuración para las sesiones y passport
-app.use(session({ secret: 'secret', saveUninitialized: true, resave: true, cookie: { secure: false } }));
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use('/', usersRouter);
 
 //Conexión a la base de datos MongoDB
 mongoose.connect("mongodb+srv://test:test@cluster0.32ht2.mongodb.net/forappneo?retryWrites=true&w=majority");
@@ -35,11 +33,12 @@ db.once('open', function () {
   console.log('Connection to DB successful')
 });
 
-/*app.get('public', express.static(path.join(__dirname, 'public')));
-app.get('/', (req, res) => {
-  res.render('index');
-});*/
 
+
+//Configuración para las sesiones
+app.use(session({ secret: 'secret', saveUninitialized: true, resave: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Configuración de flash
 app.use(flash());
@@ -54,7 +53,6 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -65,6 +63,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Configurando de Passport
+var expressSession = require('express-session');
+app.use(expressSession({ secret: 'mySecretKey', resave: true,
+saveUninitialized: true,
+cookie: { maxAge: 60000 } }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Para el formato de fecha
 // Global variables
@@ -73,6 +79,8 @@ app.use((req, res, next) => {
   next();
 });
 
+
+app.use('/', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
