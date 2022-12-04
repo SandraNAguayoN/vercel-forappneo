@@ -58,7 +58,7 @@ module.exports = {
     myPublicationsView: async (req, res) => {
         const user = req.user;
         const publications = await Publicacion.find({ user: user.email }).lean();
-        res.render('users/my_publications', { title: titles.view.publishedView, usuario: user, publicaciones: publications });
+        res.render('users/my_publications', { title: titles.view.publicationView, usuario: user, publicaciones: publications });
 
     },
 

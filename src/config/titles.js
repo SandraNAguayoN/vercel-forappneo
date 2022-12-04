@@ -9,7 +9,7 @@ module.exports = {
         editProfileView: 'Editar Perfil de usuario',
         createPublicationView: 'Crear publicación',
         editPublicationView: 'Editar publicación',
-        PublicationView: 'Publicación',
+        publicationView: 'Publicación',
         viewUserProfileView: 'Ver perfil de usuario'
     }
 };
