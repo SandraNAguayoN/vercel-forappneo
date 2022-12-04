@@ -53,7 +53,8 @@ app.use((req, res, next) => {
 });
 // Configurando de Passport
 var expressSession = require('express-session');
-app.use(expressSession({ secret: 'mySecretKey' }));
+app.use(expressSession({ secret: 'mySecretKey',   saveUninitialized: true,
+resave: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
