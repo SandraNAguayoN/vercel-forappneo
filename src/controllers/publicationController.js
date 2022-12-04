@@ -5,6 +5,7 @@ const passport = require('passport');
 const Usuario = require("../models/userModel.js");
 const Publicacion = require("../models/publicationModel.js");
 const titles = require('../config/titles');
+const Comentario = require("../models/commentModel.js");
 
 const multer = require('multer');
 const fs = require('fs');
@@ -53,12 +54,21 @@ module.exports = {
         res.redirect('/users/home');
     },
 
-    //Ver contenido de una publicacion creada por el usuario
+    //Ver todas las publicaciones creadas por el usuario
     myPublicationsView: async (req, res) => {
         const user = req.user;
+        const publications = await Publicacion.find({ user: user.email }).lean();
+        res.render('users/my_publications', { title: titles.view.publishedView, usuario: user, publicaciones: publications });
+
+    },
+
+    //Ver contenido de una publicacion creada por el usuario
+    myPublicationView: async (req, res) => {
+        const user = req.user;
         const publication = await Publicacion.findById(req.query.id).lean();
+        const comments = await Comentario.find({ publication_id: publication._id });
         console.log(publication);
-        res.render('users/my_publications', { title: titles.view.publicationView, usuario: user, publicacion: publication });
+        res.render('users/my_publication', { title: titles.view.publicationView, usuario: user, publicacion: publication, comentarios: comments });
     },
 
 
@@ -66,8 +76,9 @@ module.exports = {
     publicationView: async (req, res) => {
         const user = req.user;
         const publication = await Publicacion.findById(req.query.id).lean();
+        const comments = await Comentario.find({ publication_id: publication._id });
         console.log(publication);
-        res.render('users/publication', { title: titles.view.publicationView, usuario: user, publicacion: publication });
+        res.render('users/publication', { title: titles.view.publicationView, usuario: user, publicacion: publication, comentarios: comments });
     },
 
 };

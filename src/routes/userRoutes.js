@@ -51,6 +51,8 @@ router.get('/users/edit_publication', ensureAuthenticated, publicationController
 router.post('/edit_publication/:id', ensureAuthenticated, publicationController.editPublication);
 //Eliminar una publicacion
 router.get('/users/delete_publication/:id', ensureAuthenticated, publicationController.deletePublication);
+//Ver todas las publicaciones creadas por el usuario
+router.get('/users/my_publication', ensureAuthenticated, publicationController.myPublicationView);
 //Ver contenido de una publicacion creada por el usuario
 router.get('/users/my_publications', ensureAuthenticated, publicationController.myPublicationsView);
 //Ver contenido de una publicacion disponible 

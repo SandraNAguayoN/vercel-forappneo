@@ -20,10 +20,15 @@
                 <input type="text" class="form-control" name="name" id="name" value="<%= publicacion.name %>"
                   placeholder="Escribe..." required>
               </div>
+
               <div class="form-group">
                 <label class="labels_crear_clase">Descripción</label>
-                <input type="text" class="form-control" name="description" id="description"
-                  value="<%= publicacion.description %>" placeholder="Escribe..." required>
+                
+                <textarea class="form-control" name="description" id="description" 
+                  placeholder="Escribe..." rows="3" maxlength="500"
+                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                  required ><%= publicacion.description %></textarea>
+                <small><i>(Escribe una descripción breve, máximo 500 caracteres)</i></small>
               </div>
 
               <div class="form-group">
