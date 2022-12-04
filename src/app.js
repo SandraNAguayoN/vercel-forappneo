@@ -3,25 +3,27 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const mongoose = require('mongoose');
 //////
-var session = require('express-session');
 var bodyParser = require('body-parser');
-const flash = require('connect-flash');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 const passport = require('passport');
+require("./config/passport")(passport);
+const flash = require('connect-flash');
+
 //Fomato para fecha n minutos atrás
 const { format } = require('timeago.js');
 
-require("./config/passport")(passport);
-
-var usersRouter = require('./routes/userRoutes');
-
-const mongoose = require('mongoose');
-
 var app = express();
 
+//Configuración para las sesiones y passport
+app.use(session({ secret: 'secret', saveUninitialized: true, resave: true, cookie: { secure: false } }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+var usersRouter = require('./routes/userRoutes');
 
 //Conexión a la base de datos MongoDB
 mongoose.connect("mongodb+srv://test:test@cluster0.32ht2.mongodb.net/forappneo?retryWrites=true&w=majority");
@@ -38,10 +40,6 @@ app.get('/', (req, res) => {
   res.render('index');
 });*/
 
-//Configuración para las sesiones y passport
-app.use(session({ secret: 'secret', saveUninitialized: true, resave: true }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 //Configuración de flash
 app.use(flash());

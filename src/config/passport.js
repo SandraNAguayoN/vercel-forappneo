@@ -6,7 +6,7 @@ module.exports = function (passport) {
     passport.use(
         new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
             //Verifica usuario por email
-            Usuario.find({ email: email })
+            Usuario.findOne({ email: email })
                 .then((user) => {
                     if (!user) { //Evalúa si el usuario no esta registrado en la bd
                         return done(null, false, { message: 'El correo electrónico no se encuentra registrado' }); //Si es verdad muestra mensaje
