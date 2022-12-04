@@ -33,10 +33,10 @@ db.once('open', function () {
   console.log('Connection to DB successful')
 });
 
-app.get('public', express.static(path.join(__dirname, 'public')));
+/*app.get('public', express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
   res.render('index');
-});
+});*/
 
 //Configuración para las sesiones
 app.use(session({ secret: 'secret', saveUninitialized: true, resave: true }));
