@@ -66,8 +66,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Configurando de Passport
 var expressSession = require('express-session');
 app.use(expressSession({ secret: 'mySecretKey', resave: true,
-saveUninitialized: true,
-cookie: { maxAge: 60000 } }));
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 } }));
 
 app.use(passport.initialize());
 app.use(passport.session());
