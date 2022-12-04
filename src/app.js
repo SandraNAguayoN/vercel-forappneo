@@ -18,12 +18,12 @@ const { format } = require('timeago.js');
 
 var app = express();
 
-app.use('/', usersRouter);
-
 //Configuración para las sesiones y passport
 app.use(session({ secret: 'secret', saveUninitialized: true, resave: true, cookie: { secure: false } }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/', usersRouter);
 
 //Conexión a la base de datos MongoDB
 mongoose.connect("mongodb+srv://test:test@cluster0.32ht2.mongodb.net/forappneo?retryWrites=true&w=majority");
