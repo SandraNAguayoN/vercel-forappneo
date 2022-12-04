@@ -12,18 +12,18 @@ var session = require('express-session');
 const passport = require('passport');
 require("./config/passport")(passport);
 const flash = require('connect-flash');
-
+var usersRouter = require('./routes/userRoutes');
 //Fomato para fecha n minutos atrás
 const { format } = require('timeago.js');
 
 var app = express();
 
+app.use('/', usersRouter);
+
 //Configuración para las sesiones y passport
 app.use(session({ secret: 'secret', saveUninitialized: true, resave: true, cookie: { secure: false } }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-var usersRouter = require('./routes/userRoutes');
 
 //Conexión a la base de datos MongoDB
 mongoose.connect("mongodb+srv://test:test@cluster0.32ht2.mongodb.net/forappneo?retryWrites=true&w=majority");
@@ -73,8 +73,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-app.use('/', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
